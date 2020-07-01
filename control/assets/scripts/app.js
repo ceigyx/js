@@ -25,36 +25,41 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 }
 
 //Math operations
-function add() {
+function calculateResult(calculationType) {
+  let operator = "";
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult += +userInput.value;
-  createAndWriteOutput("+", initialResult, enteredNumber);
-  writeToLog("add", initialResult, enteredNumber, currentResult);
+  if (calculationType === "add") {
+    currentResult += +userInput.value;
+    operator = "+";
+  } else if (calculationType === "subtract") {
+    currentResult -= +userInput.value;
+    operator = "-";
+  } else if (calculationType === "multiply") {
+    currentResult *= +userInput.value;
+    operator = "*";
+  } else if (calculationType === "divide") {
+    currentResult /= +userInput.value;
+    operator = "/";
+  }
+  createAndWriteOutput(operator, initialResult, enteredNumber);
+  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+}
+
+function add() {
+  calculateResult("add");
 }
 
 function subtract() {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult -= +userInput.value;
-  createAndWriteOutput("-", initialResult, enteredNumber);
-  writeToLog("subtract", initialResult, enteredNumber, currentResult);
+  calculateResult("subtract");
 }
 
 function multiply() {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult *= +userInput.value;
-  createAndWriteOutput("*", initialResult, enteredNumber);
-  writeToLog("multiply", initialResult, enteredNumber, currentResult);
+  calculateResult("multiply");
 }
 
 function divide() {
-  const enteredNumber = getUserInput();
-  const initialResult = currentResult;
-  currentResult /= +userInput.value;
-  createAndWriteOutput("/", initialResult, enteredNumber);
-  writeToLog("divide", initialResult, enteredNumber, currentResult);
+  calculateResult("divide");
 }
 
 //getters
