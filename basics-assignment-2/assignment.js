@@ -1,3 +1,5 @@
+window.onload = function(){
+
 const task3Element = document.getElementById('task-3');
 task3Element.addEventListener("click", alertText);
 
@@ -5,8 +7,7 @@ alertText();
 alertName("name");
 
 function alertText() {
-    let text = "text";
-    alert(text);  
+    alert("text");  
 }
         
 function alertName(name) {
@@ -18,3 +19,4 @@ function combinator(one, two, three) {
 }
 
 alert(combinator("one", "combined", "string"));
+}
