@@ -10,3 +10,4 @@ result /= 10;
 //no
 
 window.alert(result);
+window.alert(userInput);
