@@ -29,7 +29,11 @@ function calculateResult(calculationType) {
   let operator;
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  if (calculationType === "add") {
+
+  if (!enteredNumber) {
+    console.log("error: cannot divide by zero")
+    return
+  } else if (calculationType === "add") {
     currentResult += +userInput.value;
     operator = "+";
   } else if (calculationType === "subtract") {
@@ -43,7 +47,9 @@ function calculateResult(calculationType) {
     operator = "/";
   } else {
     console.log("error: operation not supported")
+    return
   }
+
   createAndWriteOutput(operator, initialResult, enteredNumber);
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
