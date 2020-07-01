@@ -1,5 +1,10 @@
+// Globals
 const defaultResult = 0;
 let currentResult = defaultResult;
+
+// Logger
+let logEntries= [];
+
 
 // Render 
 
@@ -15,6 +20,14 @@ function add() {
   const initialResult = currentResult;
   currentResult += +userInput.value;
   createAndWriteOutput("+", initialResult, enteredNumber)
+  const logEntry = {
+    "operation": "ADD",
+    "prevResult": initialResult,
+    "number": enteredNumber,
+    "result":  currentResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 }
 
 function subtract() {
