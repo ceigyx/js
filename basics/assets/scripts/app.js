@@ -5,7 +5,7 @@ let currentResult = defaultResult;
 
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calcDescription);
+  outputResult(currentResult, calcDescription); //vendor.js
 }
 
 //Math operations
@@ -13,28 +13,28 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 function add() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult + parseInt(userInput.value);
+  currentResult += +userInput.value;
   createAndWriteOutput("+", initialResult, enteredNumber)
 }
 
 function subtract() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult - parseInt(userInput.value);
+  currentResult -= +userInput.value;
   createAndWriteOutput("-", initialResult, enteredNumber)
 }
 
 function multiply() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult * parseInt(userInput.value);
+  currentResult *= +userInput.value;
   createAndWriteOutput("*", initialResult, enteredNumber)
 }
 
 function divide() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult / parseInt(userInput.value);
+  currentResult /= +userInput.value;
   createAndWriteOutput("/", initialResult, enteredNumber)
 }
 
