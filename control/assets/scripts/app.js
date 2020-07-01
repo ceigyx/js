@@ -26,7 +26,7 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 
 //Math operations
 function calculateResult(calculationType) {
-  let operator = "";
+  let operator;
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
   if (calculationType === "add") {
@@ -41,25 +41,11 @@ function calculateResult(calculationType) {
   } else if (calculationType === "divide") {
     currentResult /= +userInput.value;
     operator = "/";
+  } else {
+    console.log("error: operation not supported")
   }
   createAndWriteOutput(operator, initialResult, enteredNumber);
   writeToLog(calculationType, initialResult, enteredNumber, currentResult);
-}
-
-function add() {
-  calculateResult("add");
-}
-
-function subtract() {
-  calculateResult("subtract");
-}
-
-function multiply() {
-  calculateResult("multiply");
-}
-
-function divide() {
-  calculateResult("divide");
 }
 
 //getters
@@ -68,7 +54,15 @@ function getUserInput() {
 }
 
 //attach event listners to buttons
-addBtn.addEventListener("click", add);
-subtractBtn.addEventListener("click", subtract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener("click", divide);
+addBtn.addEventListener("click", function(){
+  calculateResult("add");
+});
+subtractBtn.addEventListener("click", function(){
+  calculateResult("subtract");
+});
+multiplyBtn.addEventListener("click", function(){
+  calculateResult("multiply");
+});
+divideBtn.addEventListener("click", function(){
+  calculateResult("divide");
+});
