@@ -37,13 +37,6 @@ function getUserValue() {
         throw {message: "invalid user input, not a number!"}
     }
     return value;
-
-
-
-    // do {
-    //     value = parseInt(prompt("Maximum life for you and the monster", 100))
-    // } while (isNaN(value) || value <= 0)
-    // return value;
 }
 
 //Handlers
@@ -64,8 +57,7 @@ function endRound() {
         increasePlayerHealth(initialPlayerHealth);
         currentPlayerHealth = initialPlayerHealth;
     }
-
-
+    
     checkHealth();
 };
 
