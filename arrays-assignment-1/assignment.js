@@ -37,9 +37,11 @@ const findMinMax = (...argList) => {
   return minMax;
 };
 
-console.log(findMinMax(...arr1));
+const [min, max] = findMinMax(...arr1);
+console.log(findMinMax(...arr1), min, max);
 
 //part 4
+
 const items = ["a", "b", "c"];
 
 const list = (...argList) => {
