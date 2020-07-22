@@ -20,8 +20,7 @@ class PlaceFinder {
       return;
     }
 
-    navigator.clipboard
-      .writeText(sharedLinkInputElement.value)
+    navigator.clipboard.writeText(sharedLinkInputElement.value)
       .then(() => {
         alert('Copied into clipboard!');
       })
@@ -37,28 +36,9 @@ class PlaceFinder {
     } else {
       this.map = new Map(coordinates);
     }
-    fetch('http://localhost:3000/add-location', {
-      method: 'POST',
-      body: JSON.stringify({
-        address: address,
-        lat: coordinates.lat,
-        lng: coordinates.lng
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        const locationId = data.locId;
-        this.shareBtn.disabled = false;
-        const sharedLinkInputElement = document.getElementById('share-link');
-        sharedLinkInputElement.value = `${
-          location.origin
-        }/my-place?location=${locationId}`;
-      });
+    this.shareBtn.disabled = false;
+    const sharedLinkInputElement = document.getElementById('share-link');
+    sharedLinkInputElement.value = `${location.origin}/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${coordinates.lng}`;
   }
 
   locateUserHandler() {
@@ -76,8 +56,8 @@ class PlaceFinder {
     navigator.geolocation.getCurrentPosition(
       async successResult => {
         const coordinates = {
-          lat: successResult.coords.latitude,
-          lng: successResult.coords.longitude
+          lat: successResult.coords.latitude + Math.random() * 50,
+          lng: successResult.coords.longitude + Math.random() * 50
         };
         const address = await getAddressFromCoords(coordinates);
         modal.hide();
