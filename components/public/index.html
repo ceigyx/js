@@ -7,6 +7,16 @@
   <title>Web Components</title>
   <script src="./assets/scripts/components.js"></script>
   <script src="./assets/scripts/app.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      --color-primary: #a4fcda;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body>
   <button>Open modal</button>
@@ -14,7 +24,9 @@
     <h1 slot="title">Components loaded</h1>
     <p>dev build</p>
   </uc-modal>
-  <uc-tooltip text="Web components is a set of standards.">tooltip</uc-tooltip>
+  <p>
+    <uc-tooltip class="important" text="Web components is a set of standards.">tooltip</uc-tooltip>
+  </p>
   <a is="uc-confirm-link" href="https://www.google.ca/">Google</a>
 </body>
 </html>
