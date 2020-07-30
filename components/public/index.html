@@ -12,14 +12,23 @@
       box-sizing: border-box;
     }
 
-    html {
-      --color-primary: #a4fcda;
+    body {
+      margin: 2rem;
       font-family: sans-serif;
     }
   </style>
 </head>
 <body>
+
   <button>Open modal</button>
+  <uc-modal>
+    <h1 slot="title">slotted title</h1>
+    <p>Message to show here</p>
+  </uc-modal>
+
+
+
+  <!-- 
   <uc-modal>
     <h1 slot="title">Components loaded</h1>
     <p>dev build</p>
@@ -27,6 +36,6 @@
   <p>
     <uc-tooltip class="important" text="Web components is a set of standards.">tooltip</uc-tooltip>
   </p>
-  <a is="uc-confirm-link" href="https://www.google.ca/">Google</a>
+  <a is="uc-confirm-link" href="https://www.google.ca/">Google</a> -->
 </body>
 </html>
